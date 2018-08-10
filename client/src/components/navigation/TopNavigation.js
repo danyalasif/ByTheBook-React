@@ -1,21 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
-import faker from 'faker';
 import Search from './Search';
 import Login from '../pages/LoginPage';
 import Signup from '../pages/SignupPage';
-import SearchFilters from './SearchFilters';
 import CartDropdown from '../buttons/CartDropdown';
-// import {
-//     Alignment,
-//     AnchorButton,
-//     Classes,
-//     Navbar,
-//     NavbarGroup,
-//     NavbarHeading,
-//     NavbarDivider
-// } from '@blueprintjs/core';
 import {
     Button,
     Navbar,
@@ -24,8 +12,6 @@ import {
     Nav,
     NavItem,
     Glyphicon,
-    Dropdown,
-    ButtonToolbar
 } from 'react-bootstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -33,7 +19,7 @@ import { faArchive, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 import { connect } from 'react-redux';
 import * as actions from '../../actions/auth';
-import { Switch, Route, Redirect, Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class TopNavigation extends Component {
     constructor(props) {

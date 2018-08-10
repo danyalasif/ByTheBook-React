@@ -35,10 +35,8 @@
     },
     "proxy": {
         "/api": {
-            "target": "http://localhost:3001"
-        },
-        "/images": {
-            "target": "http://localhost:3001/images"
+            "target": "http://localhost:3001",
+            "secure": false
         }
     },
     "scripts": {

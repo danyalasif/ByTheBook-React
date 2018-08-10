@@ -3,7 +3,6 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 import { ListGroupItem, ListGroup, Well, Badge } from 'react-bootstrap';
-import { Rating } from 'semantic-ui-react';
 
 const CategoryList = ({ books }) => {
     const genres = {};

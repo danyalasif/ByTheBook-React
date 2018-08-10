@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 
 import './App.css';
-import 'normalize.css/normalize.css';
-import '@blueprintjs/core/lib/css/blueprint.css';
-import '@blueprintjs/core/lib/css/blueprint.css';
 
 import { Route } from 'react-router-dom';
 import HomePage from './components/pages/HomePage';

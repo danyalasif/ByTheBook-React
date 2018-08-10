@@ -11,13 +11,12 @@ import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
 import path from 'path';
 
-
 import User from './models/userSchema';
 import index from './routes/index';
 import reviews from './routes/reviews';
 import users from './routes/users';
 import cart from './routes/cart';
-
+require('dotenv').config();
 // const MongoStore = ConnectMongo(app);
 const MongoStore = require('connect-mongo')(session);
 // 'mongodb://localhost:2000/bythebook'
@@ -35,8 +34,7 @@ app.options('*', cors());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-app.use( express.static(path.join(__dirname, '../../client/build')))
-
+app.use(express.static(path.join(__dirname, '../../client/build')));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

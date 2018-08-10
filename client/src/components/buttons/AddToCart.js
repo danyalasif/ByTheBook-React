@@ -1,17 +1,9 @@
 import React, { Component } from 'react';
-import { Button, Glyphicon, ButtonGroup } from 'react-bootstrap';
 import axios from 'axios';
-import { connect } from 'react-redux';
 import {
     AddToCart as ReduxAddToCart,
-    IncreaseQty,
-    DecreaseQty,
     RemoveFromCart
 } from 'react-redux-shopping-cart';
-import { Button as SIButton, Icon } from 'semantic-ui-react';
-import { FontAwesomeIcon } from '../../../node_modules/@fortawesome/react-fontawesome';
-import { faAddressBook } from '@fortawesome/free-solid-svg-icons';
-import _ from 'lodash';
 class AddToCart extends Component {
     constructor(props) {
         super(props);
