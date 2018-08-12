@@ -18,7 +18,10 @@
         "clean": "concurrently \"rimraf node_modules\" \"cd client && rimraf node_modules build\" \"cd server && rimraf node_modules build\"",
         "heroku-postbuild": "npm run build",
         "install": "(cd client && npm install) && (cd server && npm install)",
-        "start": "concurrently \"cd client && npm start\" \"cd server && npm start\"",
+        "start": "concurrently \"cd client && cross-env PORT=3000 npm start\" \"cd server && cross-env PORT=3001 npm start\"",
         "start:prod": "cd server && npm run start:prod"
+    },
+    "devDependencies": {
+        "cross-env": "^5.2.0"
     }
 }
