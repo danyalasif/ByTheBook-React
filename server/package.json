@@ -35,10 +35,9 @@
         "serve-favicon": "~2.4.5",
         "socket.io": "^2.1.1",
         "uuid": "^3.3.2",
-        "xml2js": "^0.4.19"
-    },
-    "devDependencies": {
+        "xml2js": "^0.4.19",
         "babel-cli": "^6.26.0",
         "babel-preset-env": "^1.7.0"
-    }
+    },
+    "devDependencies": {}
 }
