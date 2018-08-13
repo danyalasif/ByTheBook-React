@@ -6,7 +6,7 @@
         "start": "nodemon --exec  babel-node -- ./bin/www",
         "compile": "babel-node src --out-dir .compiled --source-maps --watch",
         "build": "babel . --ignore node_modules,build --out-dir build",
-        "start:prod": "node ./build/app.js"
+        "start:prod": "node -r dotenv/config ./build/app.js"
     },
     "dependencies": {
         "axios": "^0.18.0",
