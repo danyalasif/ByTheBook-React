@@ -3,7 +3,7 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { Search, Popup } from 'semantic-ui-react';
 import axios from 'axios';
-import { withRouter, Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 // const source = _.times(5, () => ({
 //     title: faker.company.companyName(),
 //     description: faker.company.catchPhrase(),

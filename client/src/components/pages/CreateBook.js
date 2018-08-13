@@ -5,7 +5,6 @@ import {
     FormGroup,
     Col,
     Button,
-    Checkbox,
     ControlLabel,
     FormControl,
     Grid
@@ -63,6 +62,7 @@ class CreateBook extends Component {
                         author: [...this.state.bookData.author, e.author]
                     }
                 });
+                break;
             default:
                 this.setState({
                     bookData: {

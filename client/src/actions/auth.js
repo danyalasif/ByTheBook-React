@@ -1,6 +1,5 @@
 import { USER_LOGGED_IN, USER_LOGGED_OUT } from '../constants/action-types';
 import api from '../api';
-import { repopulateCart } from './cart';
 
 export const userLoggedIn = user => ({
     type: USER_LOGGED_IN,

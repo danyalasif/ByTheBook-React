@@ -5,8 +5,7 @@ import {
     Container,
     Rating,
     Card,
-    Icon,
-    Button,
+
     Grid,
     Menu,
     Segment

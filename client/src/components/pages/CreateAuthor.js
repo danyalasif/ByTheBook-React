@@ -5,7 +5,6 @@ import {
     FormGroup,
     Col,
     Button,
-    Checkbox,
     ControlLabel,
     FormControl,
     Grid
@@ -57,7 +56,6 @@ class CreateAuthor extends Component {
     };
 
     render() {
-        const { authors, loading } = this.state;
         return (
             <Grid style={{paddingTop: '2em'}}>
                 <Form horizontal>

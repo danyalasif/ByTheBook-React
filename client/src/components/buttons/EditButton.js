@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {
     Button,
-    Glyphicon,
     FormGroup,
     FormControl,
     Modal
@@ -50,6 +49,7 @@ console.log("I'm being clicked")
                         author: [...this.state.bookData.author, e.author]
                     }
                 });
+                break;
             default:
                 this.setState({
                     bookData: {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Jumbotron, Button, Carousel } from 'react-bootstrap';
+import { Jumbotron, Carousel } from 'react-bootstrap';
 
 const quotes = [
     {

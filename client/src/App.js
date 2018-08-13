@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 
 import './App.css';
 
-import { Route } from 'react-router-dom';
 import HomePage from './components/pages/HomePage';
 import TopNavigation from './components/navigation/TopNavigation';
 

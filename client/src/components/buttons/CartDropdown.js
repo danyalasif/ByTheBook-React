@@ -1,7 +1,5 @@
-import faker from 'faker';
+
 import React, { Component } from 'react';
-import { Dropdown, Image, Icon } from 'semantic-ui-react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
@@ -9,7 +7,6 @@ import {
     NavDropdown,
     MenuItem,
     Badge,
-    Button,
     Table
 } from '../../../node_modules/react-bootstrap';
 import _ from 'lodash';
@@ -37,11 +34,6 @@ class CartDropdown extends Component {
     render() {
         const { cart } = this.props;
         const { books } = this.state;
-        const clearCartStyle = `
-            color: 'white';
-            background-color: 'red';
-
-        `;
 
         _.debounce(this.updateCartDropdown, 500);
         let color = cart.items.length > 0 ? '#382110' : 'grey';

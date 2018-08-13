@@ -5,7 +5,6 @@ import Login from '../pages/LoginPage';
 import Signup from '../pages/SignupPage';
 import CartDropdown from '../buttons/CartDropdown';
 import {
-    Button,
     Navbar,
     NavDropdown,
     MenuItem,

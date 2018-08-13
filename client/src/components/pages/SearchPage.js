@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import axios from '../../../node_modules/axios';
-import { Button, Glyphicon, ButtonGroup } from 'react-bootstrap';
-import FilterableTable from 'react-filterable-table';
+// import axios from '../../../node_modules/axios';
+// import { Button, Glyphicon, ButtonGroup } from 'react-bootstrap';
+// import FilterableTable from 'react-filterable-table';
 // import { Table } from 'reactable';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 import { Link } from '../../../node_modules/react-router-dom';
-import _ from 'lodash';
+// import _ from 'lodash';
 
 class SearchPage extends Component {
     constructor(props) {
@@ -51,21 +51,21 @@ class SearchPage extends Component {
                                 if (filter.value.substring(0, 1) === '>') {
                                     return (
                                         row[filter.id] >
-                                        parseInt(filter.value.substring(1))
+                                        parseInt(filter.value.substring(1), 10)
                                     );
                                 } else if (
                                     filter.value.substring(0, 1) === '<'
                                 ) {
                                     return (
                                         row[filter.id] <
-                                        parseInt(filter.value.substring(1))
+                                        parseInt(filter.value.substring(1), 10)
                                     );
                                 } else if (
                                     filter.value.substring(0, 1) === '='
                                 ) {
                                     return (
                                         row[filter.id] ===
-                                        parseInt(filter.value.substring(1))
+                                        parseInt(filter.value.substring(1), 10)
                                     );
                                 }
                             }
@@ -78,21 +78,21 @@ class SearchPage extends Component {
                                 if (filter.value.substring(0, 1) === '>') {
                                     return (
                                         row[filter.id] >
-                                        parseInt(filter.value.substring(1))
+                                        parseInt(filter.value.substring(1), 10)
                                     );
                                 } else if (
                                     filter.value.substring(0, 1) === '<'
                                 ) {
                                     return (
                                         row[filter.id] <
-                                        parseInt(filter.value.substring(1))
+                                        parseInt(filter.value.substring(1), 10)
                                     );
                                 } else if (
                                     filter.value.substring(0, 1) === '='
                                 ) {
                                     return (
                                         row[filter.id] ===
-                                        parseInt(filter.value.substring(1))
+                                        parseInt(filter.value.substring(1), 10)
                                     );
                                 }
                             }

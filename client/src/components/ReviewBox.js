@@ -5,8 +5,7 @@ import {
     Header,
     Rating,
     Button,
-    Form,
-    Message
+    Form
 } from 'semantic-ui-react';
 import InlineError from './messages/InlineError';
 import InlineSuccess from './messages/InlineSuccess';

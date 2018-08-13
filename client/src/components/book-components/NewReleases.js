@@ -5,18 +5,12 @@ import AddToCart from '../buttons/AddToCart';
 
 import Link from 'react-router-dom/Link';
 import { Rating } from 'semantic-ui-react';
-import { Thumbnail, Grid, Row, Col, Well } from 'react-bootstrap';
+import { Thumbnail, Col, Well } from 'react-bootstrap';
 import EditButton from '../buttons/EditButton';
 // import { Carousel } from 'react-responsive-carousel';
 // import { AddToCart } from 'react-redux-shopping-cart';
 
-const genres = [
-    'All Genres',
-    'Business',
-    'Fiction',
-    'Programming',
-    'Science Fiction'
-];
+
 
 class NewReleases extends Component {
     constructor(props) {
@@ -50,7 +44,7 @@ class NewReleases extends Component {
 
     render() {
         const { isAuthenticated, user, cart } = this.props;
-        const { activeItem, filteredBooks } = this.state;
+        const { filteredBooks } = this.state;
         return (
             <React.Fragment>
                 <Well>

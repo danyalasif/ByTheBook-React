@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Route, Redirect, withRouter } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 
 const GuestRoute = ({ isAuthenticated, component: Component, ...rest }) => (
     <Route {...rest} render={props => <Component {...props} />} />

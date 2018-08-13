@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import RecommendedBooks from '../book-components/RecommendedBooks';
 import NewReleases from '../book-components/NewReleases';
-import BestSellers from '../book-components/BestSellers';
-import AwardWinners from '../book-components/AwardWinners';
+
 import BookCarousal from '../book-components/BookCarousal';
-import QuoteJumbotron from '../book-components/QuoteJumbotron';
 import TopRated from '../book-components/TopRated';
 // import BestAuthors from '../BestAuthors';
 import axios from 'axios';

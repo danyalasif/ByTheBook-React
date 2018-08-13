@@ -4,8 +4,6 @@ import InlineError from '../messages/InlineError';
 
 import axios from 'axios';
 
-const timeoutLength = 2000;
-
 class AddToWishlist extends Component {
     constructor(props) {
         super(props);

@@ -1,27 +1,21 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import {
-    Divider,
-    Dropdown,
     Header,
-    List,
     Message,
     Segment,
     Container,
     Menu,
     Rating,
     Card,
-    Icon,
-    Button,
-    Tab,
+
     Dimmer,
     Loader
 } from 'semantic-ui-react';
 
 import { connect } from 'react-redux';
-import * as actions from '../../actions/auth';
-import faker from 'faker';
-import { Thumbnail, Grid, Row, Col, Panel, Image } from 'react-bootstrap';
+// import * as actions from '../../actions/auth';
+// import faker from 'faker';
+import { Thumbnail, Image } from 'react-bootstrap';
 import EditUser from '../buttons/EditUser';
 import api from '../../api';
 import { Link } from 'react-router-dom';

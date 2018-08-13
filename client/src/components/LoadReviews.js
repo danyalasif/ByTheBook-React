@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import {
     TextArea,
-    Segment,
+   
     Header,
     Comment,
     Rating,
     Button,
     Modal,
     Form,
-    Message,
+    
     Icon
 } from 'semantic-ui-react';
-import api from '../api';
+// import api from '../api';
 import axios from 'axios';
 import InlineError from './messages/InlineError';
 import InlineSuccess from './messages/InlineSuccess';

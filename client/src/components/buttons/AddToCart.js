@@ -21,7 +21,6 @@ class AddToCart extends Component {
     };
 
     render() {
-        const { loading, quantity } = this.state;
         const { book, cart } = this.props;
         const styles = `
         border: none;
@@ -79,16 +78,3 @@ class AddToCart extends Component {
 }
 
 export default AddToCart;
-
-{
-    /* <Button
-                loading={loading}
-                size="large"
-                icon={cart.some(e => e.book_id === isbn)  ? 'delete' : 'cart'}
-                content={cart.some(e => e.book_id === isbn) ? 'Remove from Cart' : 'Add To Cart'}
-                labelPosition="left"
-                onClick={this.submitCart}
-                style={{ display: 'block', margin: '10px' }}
-                color={cart.some(e => e.book_id === isbn)  ? 'red' : 'green'}
-            /> */
-}

@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
-import _ from 'lodash';
+// import _ from 'lodash';
 // import faker from 'faker';
 
 import {
     Container,
-    Image,
-    Menu,
-    Rating,
-    Card,
-    Icon,
-    Button,
-    Tab
+
+    Button
 } from 'semantic-ui-react';
 
 class AdminPage extends Component {

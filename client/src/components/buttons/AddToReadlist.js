@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Popup } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 import InlineError from '../messages/InlineError';
 import axios from 'axios';
 

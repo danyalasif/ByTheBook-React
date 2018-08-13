@@ -9,7 +9,6 @@ import {
     Rating,
     Icon,
     Button,
-    Form
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -48,7 +47,7 @@ class AuthorProfile extends Component {
     };
 
     render() {
-        const { author, loading, books } = this.state;
+        const { author, books } = this.state;
 
         return (
             <Container style={{ marginTop: '10em' }}>

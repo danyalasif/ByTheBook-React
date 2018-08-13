@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { signup } from '../../actions/users';
 // import { Button, Header, Image, Modal } from 'semantic-ui-react';
-import { Modal, Button, Glyphicon } from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
