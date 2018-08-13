@@ -68,12 +68,12 @@ app.use(function(req, res, next) {
     //important: move to the code that handles the route
     next();
 });
+app.use('/*', staticFiles)
 
 app.use('/api', index);
 app.use('/api/users', users);
 app.use('/api/reviews', reviews);
 app.use('/api/cart', cart);
-app.use('/*', staticFiles)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
