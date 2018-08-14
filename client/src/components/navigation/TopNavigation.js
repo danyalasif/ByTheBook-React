@@ -60,7 +60,7 @@ class TopNavigation extends Component {
                     </Nav>
                     <Nav pullRight>
                         <NavItem>
-                            <CartDropdown cart={cart} />
+                            {isAuthenticated && <CartDropdown cart={cart} />}
                         </NavItem>
                         {(!isAuthenticated && (
                             <NavDropdown
