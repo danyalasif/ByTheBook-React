@@ -76,7 +76,7 @@ class CartDropdown extends Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                {books.map((book, i) => (
+                                {books && books.map((book, i) => (
                                     <tr>
                                         <td>{i + 1}</td>
                                         <td>

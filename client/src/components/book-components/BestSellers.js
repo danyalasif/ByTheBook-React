@@ -42,7 +42,7 @@ const BestSellers = ({ books }) => (
 
         <Container fluid>
             <Card.Group>
-                {books.map(book => (
+                {books && books.map(book => (
                     <Card key={book.ISBN13}>
                         <Image
                             style={{ height: '300px' }}

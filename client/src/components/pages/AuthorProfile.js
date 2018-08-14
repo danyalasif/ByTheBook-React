@@ -106,7 +106,7 @@ class AuthorProfile extends Component {
                             <Header size="large">Books by this author</Header>
                             <Grid columns={6} divided>
                                 <Grid.Row>
-                                    {books.map((book, index) => (
+                                    {books && books.map((book, index) => (
                                         <Grid.Column
                                             width={5}
                                             celled="internally"

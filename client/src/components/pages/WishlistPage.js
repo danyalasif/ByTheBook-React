@@ -30,7 +30,7 @@ class WishlistPage extends Component {
                     </Panel.Heading>
                 </Panel>
                 <Row>
-                    {books.map(book => (
+                    {books && books.map(book => (
                         <Col xs={6} md={2}>
                             <Thumbnail
                                 src={`http://localhost:3001${

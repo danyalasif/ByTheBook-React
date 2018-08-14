@@ -37,7 +37,7 @@ const RecommendedBooks = ({ books }) => (
         <Segment>
             <Grid columns={6} divided>
                 <Grid.Row>
-                    {books.slice(0, 5).map((book, index) => (
+                    {books && books.slice(0, 5).map((book, index) => (
                         <Grid.Column width={2} celled="internally">
                             <Card style={{ width: '500px', height: '500px' }}>
                                 <img
