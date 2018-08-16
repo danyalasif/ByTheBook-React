@@ -76,7 +76,7 @@ const BookCarousal = ({ books }) => (
                     width={1920}
                     height={300}
                     alt="900x500"
-                    src="/images/carousal1.jpeg"
+                    src="images/carousal1.jpeg"
                 />
                 <Carousel.Caption>
                     <p style={retroStyles}>&#65282;{quote.quote}&#65282;</p>
@@ -84,33 +84,7 @@ const BookCarousal = ({ books }) => (
                 </Carousel.Caption>
             </Carousel.Item>
         ))}
-        {/* <Carousel.Item>
-            <img
-                width={1920}
-                height={300}
-                alt="900x300"
-                src="/images/carousal1.jpeg"
-            />
-            <Carousel.Caption>
-                <h3>Second slide label</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-            <img
-                width={1920}
-                height={300}
-                alt="900x300"
-                src="/images/carousal1.jpeg"
-            />
-            <Carousel.Caption>
-                <h3>Third slide label</h3>
-                <p>
-                    Praesent commodo cursus magna, vel scelerisque nisl
-                    consectetur.
-                </p>
-            </Carousel.Caption>
-        </Carousel.Item> */}
+       
     </Carousel>
 );
 export default BookCarousal;

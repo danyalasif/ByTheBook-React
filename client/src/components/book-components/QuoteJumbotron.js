@@ -5,48 +5,48 @@ const quotes = [
     {
         quote: `Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.`,
         author: `Albert Einstein`,
-        image: `/carousal1.jpg`
+        image: `/images/carousal1.jpg`
     },
     { quote: `So many books, so little time.`, author: `Frank Zappa` },
     {
         quote: `A room without books is like a body without a soul.`,
         author: `Marcus Tullius Cicero`,
-        image: `/carousal1.jpg`
+        image: `/images/carousal1.jpg`
     },
     {
         quote: `If you tell the truth, you don't have to remember anything.`,
         author: `Mark Twain`,
-        image: `/carousal1.jpg`
+        image: `/images/carousal1.jpg`
     },
     {
         quote: `To live is the rarest thing in the world. Most people exist, that is all.`,
         author: `Oscar Wilde`,
-        image: `/carousal1.jpg`
+        image: `/images/carousal1.jpg`
     },
     {
         quote: `To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.`,
         author: `Ralph Waldo Emerson`,
-        image: `/carousal1.jpg`
+        image: `/images/carousal1.jpg`
     },
     {
         quote: `And those who were seen dancing were thought to be insane by those who could not hear the music.`,
         author: `Friedrich Nietzsche`,
-        image: `/carousal1.jpg`
+        image: `/images/carousal1.jpg`
     },
     {
         quote: `Sometimes people don't want to hear the truth because they don't want their illusions destroyed.`,
         author: `Friedrich Nietzsche`,
-        image: `/carousal1.jpg`
+        image: `/images/carousal1.jpg`
     },
     {
         quote: `There are no facts, only interpretations.`,
         author: `Friedrich Nietzsche`,
-        image: `/carousal1.jpg`
+        image: `/images/carousal1.jpg`
     },
     {
         quote: `I cannot believe in a God who wants to be praised all the time.`,
         author: `Friedrich Nietzsche`,
-        image: `/carousal1.jpg`
+        image: `/images/carousal1.jpg`
     }
 ];
 
