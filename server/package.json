@@ -7,7 +7,7 @@
         "compile": "babel-node src --out-dir .compiled --source-maps --watch",
         "build": "babel . --ignore node_modules,build --out-dir build && npm run build:bin && npm run build:public",
         "build:bin": "babel ./bin/www --out-dir ./build",
-        "build:public": "cp -u public build\\public",
+        "build:public": "cp -u -r public build/public",
         "start:prod": "node -r dotenv/config ./build/bin/www"
     },
     "dependencies": {
