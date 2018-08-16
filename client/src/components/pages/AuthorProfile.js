@@ -65,7 +65,7 @@ class AuthorProfile extends Component {
                         <Segment>
                             <Image
                                 size="large"
-                                src={`http://localhost:3001${
+                                src={`${
                                     author.author_img
                                 }.jpg`}
                                 alt={author.name}
@@ -113,7 +113,7 @@ class AuthorProfile extends Component {
                                         >
                                             <Card>
                                                 <img
-                                                    src={`http://localhost:3001${
+                                                    src={`${
                                                         book.book_img
                                                     }`}
                                                     alt={book.title}

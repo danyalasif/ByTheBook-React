@@ -46,7 +46,7 @@ const BestSellers = ({ books }) => (
                     <Card key={book.ISBN13}>
                         <Image
                             style={{ height: '300px' }}
-                            src={`http://localhost:3001${book.book_img}`}
+                            src={`{book.book_img}`}
                         />
                         <Card.Content>
                             <Card.Header>{book.title}</Card.Header>

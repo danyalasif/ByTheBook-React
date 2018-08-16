@@ -114,7 +114,7 @@ class CheckoutPage extends Component {
                                 books.map(book => (
                                     <Item>
                                         <Item.Image
-                                            src={`http://localhost:3001${
+                                            src={`${
                                                 book.book_id.book_img
                                             }`}
                                             alt={book.book_id.title}

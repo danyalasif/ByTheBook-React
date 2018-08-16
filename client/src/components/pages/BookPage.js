@@ -69,7 +69,7 @@ class BookPage extends Component {
                                     <EditButton book={book} />
                                 )}
                             <Image
-                                src={`http://localhost:3001${book.book_img}`}
+                                src={`${book.book_img}`}
                                 rounded
                             />
                             <AddToWishlist

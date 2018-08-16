@@ -60,7 +60,7 @@ class SearchComponent extends Component {
         let titlesOnly = results.map(result => {
             return {
                 title: result.title,
-                // image: `http://localhost:3001${result.book_img}`,
+                // image: `${result.book_img}`,
                 price: result.price,
                 ISBN13: result.ISBN13
             };

@@ -41,7 +41,7 @@ const RecommendedBooks = ({ books }) => (
                         <Grid.Column width={2} celled="internally">
                             <Card style={{ width: '500px', height: '500px' }}>
                                 <img
-                                    src={`http://localhost:3001${
+                                    src={`${
                                         book.book_img
                                     }`}
                                     alt={book.title}

@@ -33,7 +33,7 @@ class GenrePage extends Component {
                     {books && books.map(book => (
                         <Col xs={6} md={3}>
                             <Thumbnail
-                                src={`http://localhost:3001${
+                                src={`${
                                     book.book_img
                                 }`}
                                 alt="242x200"

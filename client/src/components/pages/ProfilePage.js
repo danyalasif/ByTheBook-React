@@ -74,14 +74,14 @@ class ProfilePage extends Component {
             <Container style={{ marginTop: '10em' }}>
                 <EditUser />
                 <Header as="h1">{user.username}'s Profile</Header>
-                <Thumbnail src={`http://localhost:3001${userInfo.user_img}`}                 alt={user.username}
+                <Thumbnail src={`${userInfo.user_img}`}                 alt={user.username}
                 style={{
                     maxWidth: '200px',
                     maxHeight: '200px',
                     backgroundColor: 'rgba(255, 255, 255, 0.1)'
                 }}
                />
-                {/* <Image src={`http://localhost:3001${
+                {/* <Image src={`${
                                         userInfo.user_img
                                     }`} /> */}
                 {userInfo.about}
@@ -112,7 +112,7 @@ class ProfilePage extends Component {
                                             width: '200px',
                                             margin: 'auto'
                                         }}
-                                        src={`http://localhost:3001${
+                                        src={`${
                                             book.book_img
                                         }`}
                                     />
@@ -168,7 +168,7 @@ class ProfilePage extends Component {
                                             width: '200px',
                                             margin: 'auto'
                                         }}
-                                        src={`http://localhost:3001${
+                                        src={`${
                                             book.book_img
                                         }`}
                                     />
