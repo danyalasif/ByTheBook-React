@@ -22,7 +22,7 @@ class HomePage extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3001/api/').then(res =>
+        axios.get('/api/').then(res =>
             this.setState({
                 books: res.data,
                 loading: false
