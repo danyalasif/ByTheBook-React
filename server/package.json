@@ -3,10 +3,12 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "start": "nodemon --exec  babel-node -- ./app.js",
+        "start": "nodemon --exec  babel-node -- ./bin/www",
         "compile": "babel-node src --out-dir .compiled --source-maps --watch",
-        "build": "babel . --ignore node_modules,build --out-dir build",
-        "start:prod": "node -r dotenv/config ./build/app.js"
+        "build": "babel . --ignore node_modules,build --out-dir build && npm run build:bin && npm run build:public",
+        "build:bin": "babel ./bin/www --out-dir ./build",
+        "build:public": "xcopy public /I  /D build\\public /e",
+        "start:prod": "node -r dotenv/config ./build/bin/www"
     },
     "dependencies": {
         "axios": "^0.18.0",

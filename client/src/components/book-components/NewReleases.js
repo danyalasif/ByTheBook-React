@@ -10,8 +10,6 @@ import EditButton from '../buttons/EditButton';
 // import { Carousel } from 'react-responsive-carousel';
 // import { AddToCart } from 'react-redux-shopping-cart';
 
-
-
 class NewReleases extends Component {
     constructor(props) {
         super(props);
@@ -60,7 +58,7 @@ class NewReleases extends Component {
                                     <EditButton book={book} />
                                 )}
                             <Thumbnail
-                                src={`http://localhost:3001${book.book_img}`}
+                                src={`${book.book_img}`}
                                 alt={book.title}
                                 style={{
                                     width: book.book_img.naturalWidth + 'px',

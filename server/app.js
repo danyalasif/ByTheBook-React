@@ -33,8 +33,7 @@ app.options('*', cors());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-const staticFiles = express.static(path.join(__dirname, '../../client/build'))
-app.use(staticFiles);
+const staticFiles = express.static(path.join(__dirname, '../../client/build'));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -54,7 +53,8 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/', express.static(path.join(__dirname, 'public')));
+app.use(staticFiles);
 
 //Passport Configuration
 passport.use(new LocalStrategy(User.authenticate()));
@@ -68,13 +68,12 @@ app.use(function(req, res, next) {
     //important: move to the code that handles the route
     next();
 });
-app.use('/*', staticFiles)
 
 app.use('/api', index);
 app.use('/api/users', users);
 app.use('/api/reviews', reviews);
 app.use('/api/cart', cart);
-
+app.use('/*', staticFiles);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     const err = new Error('Not Found');
@@ -93,7 +92,7 @@ app.use(function(err, req, res, next) {
     res.render('error');
 });
 
-const port =  process.env.APP_PORT || process.env.PORT || 3001;
+// const port = process.env.APP_PORT || process.env.PORT || 3001;
 
-app.listen(port, () => console.log('Example app listening on port ' + port));
+// app.listen(port, () => console.log('Example app listening on port ' + port));
 export default app;
