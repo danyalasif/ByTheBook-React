@@ -14,7 +14,7 @@
         "build": "concurrently \"cd client && npm run build\" \"cd server && npm run build\"",
         "clean": "concurrently \"rimraf node_modules\" \"cd client && rimraf node_modules build\" \"cd server && rimraf node_modules build\"",
         "heroku-postbuild": "npm run build",
-        "install": "(cd client && npm install) && (cd server && npm install)",
+        "install": "(cd ./client && npm install) && (cd ../server && npm install)",
         "start": "concurrently  \"cd server &&  npm start\" \"cd client && npm start\"",
         "start:prod": "cd server && npm run start:prod"
     },
