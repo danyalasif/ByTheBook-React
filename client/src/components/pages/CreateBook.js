@@ -14,7 +14,8 @@ class CreateBook extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            loading: true,
+            pageLoading: true,
+            authorLoading: true,
             authors: [],
             bookData: {
                 ISBN13: '',
@@ -29,9 +30,10 @@ class CreateBook extends Component {
     }
 
     componentDidMount() {
+
         axios
             .get('/api/authors')
-            .then(res => this.setState({ authors: res.data, loading: false }));
+            .then(res => this.setState({ authors: res.data, authorLoading: false }));
     }
 
     handleSubmit = () => {
@@ -46,10 +48,11 @@ class CreateBook extends Component {
 
         formData.append('book_image', image);
 
-        axios.post('/api/uploadBookImage', formData).then(res => {});
+        axios.post('/api/uploadBookImage', formData).then(res => { console.log({ res }) });
     };
 
     handleChange = e => {
+        console.log({ bookData: this.state.bookData, e: e.target.value })
         switch (e.target.name) {
             case 'book_image':
                 console.log(e.target.files);
@@ -59,7 +62,7 @@ class CreateBook extends Component {
                 this.setState({
                     bookData: {
                         ...this.state.bookData,
-                        author: [...this.state.bookData.author, e.author]
+                        author: [...this.state.bookData.author, e.target.value]
                     }
                 });
                 break;
@@ -74,9 +77,9 @@ class CreateBook extends Component {
     };
 
     render() {
-        const { authors, loading } = this.state;
+        const { authors, authorLoading } = this.state;
         return (
-            <Grid style={{paddingTop: '2em'}}>
+            <Grid style={{ paddingTop: '2em' }}>
                 <Form horizontal>
                     <FormGroup>
                         <Col componentClass={ControlLabel} sm={2}>
@@ -176,7 +179,7 @@ class CreateBook extends Component {
                                 name="author"
                                 onChange={this.handleChange}
                             >
-                                {!loading &&
+                                {!authorLoading &&
                                     authors.map(author => (
                                         <option value={author._id}>
                                             {author.name}
