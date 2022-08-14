@@ -19,6 +19,7 @@
         "start:prod": "cd server && npm run start:prod"
     },
     "devDependencies": {
+        "@faker-js/faker": "^7.4.0",
         "cross-env": "^5.2.0"
     }
 }
