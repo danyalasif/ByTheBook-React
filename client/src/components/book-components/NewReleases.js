@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
-// import faker from 'faker';
 import AddToCart from '../buttons/AddToCart';
 
 import Link from 'react-router-dom/Link';
@@ -57,16 +56,19 @@ class NewReleases extends Component {
                                 user.username === 'admin' && (
                                     <EditButton book={book} />
                                 )}
-                            <Thumbnail
-                                src={`${book.book_img}`}
-                                alt={book.title}
-                                style={{
-                                    width: book.book_img.naturalWidth + 'px',
-                                    height: book.book_img.naturalHeight + 'px',
-                                    backgroundColor: 'rgba(255, 255, 255, 0.1)'
-                                }}
-                                key={book._id}
+                            <div
                             >
+                                <img
+                                    src={`${book.book_img}`}
+                                    alt={book.title}
+                                    style={{
+                                        width: book.book_img.naturalWidth + 'px',
+                                        height: "250px",
+                                        backgroundColor: 'rgba(255, 255, 255, 0.1)'
+                                    }}
+                                    async
+                                    key={book._id}
+                                />
                                 <h3>
                                     <Link to={`/book/${book.ISBN13}`}>
                                         {book.title.substring(0, 25)}
@@ -86,7 +88,7 @@ class NewReleases extends Component {
                                     /> */}
                                     <AddToCart book={book} cart={cart} />
                                 </p>
-                            </Thumbnail>
+                            </div>
                         </Col>
                     ))}
             </React.Fragment>
