@@ -15,7 +15,7 @@ const debug = Debug('server:server');
  * Get port from environment and store in Express.
  */
 
-const port =  process.env.APP_PORT || process.env.PORT || 3001;
+const port = process.env.APP_PORT || process.env.PORT || 3001;
 app.set('port', port);
 
 /**
@@ -88,5 +88,5 @@ function onListening() {
     const bind =
         typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
     debug('Listening on ' + bind);
-    console.log("Listening on port " + addr.port);
+    console.log(`Up on http://localhost:${addr.port}`);
 }

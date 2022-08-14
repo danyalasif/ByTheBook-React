@@ -19,7 +19,6 @@
         "react-dom": "^16.4.0",
         "react-filterable-table": "^0.3.428",
         "react-redux": "^5.0.7",
-        "react-redux-shopping-cart": "^1.0.2",
         "react-responsive-carousel": "^3.1.39",
         "react-router-dom": "^4.2.2",
         "react-scripts": "1.1.4",
