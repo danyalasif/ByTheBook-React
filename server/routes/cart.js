@@ -53,6 +53,7 @@ router.get('/cartItems', (req, res) => {
 
 router.post('/updateCart', (req, res) => {
     const cart = req.body.cart;
+    console.log({ cart })
     let builtCart = cart.map(item => {
         return {
             book_id: item.id,

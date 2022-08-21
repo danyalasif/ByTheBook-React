@@ -9,8 +9,6 @@ import { Grid, Row, Col } from 'react-bootstrap';
 import connect from '../../../node_modules/react-redux/lib/connect/connect';
 import CategoryList from '../book-components/CategoryList';
 
-// import { Container, Row, Col } from 'reactstrap';
-
 class HomePage extends Component {
     constructor(props) {
         super(props);
@@ -40,7 +38,7 @@ class HomePage extends Component {
                         <Grid fluid>
                             <Row className="show-grid">
                                 <Col xsHidden smHidden md={12}>
-                                    <BookCarousal books={books} />
+                                    <BookCarousal />
                                 </Col>
                             </Row>
 

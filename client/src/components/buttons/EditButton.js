@@ -5,8 +5,8 @@ import {
     FormControl,
     Modal
 } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWrench } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faWrench } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 class EditButton extends Component {
     constructor(props, context) {
@@ -64,13 +64,13 @@ console.log("I'm being clicked")
         const { book } = this.props;
         return (
             <div>
-                <FontAwesomeIcon
+                {/* <FontAwesomeIcon
                     icon={faWrench}
                     bsStyle="primary"
                     bsSize="large"
                     onClick={this.handleShow}
                     style={{ fontSize: '16px', cursor: 'pointer' }}
-                />
+                /> */}
 
                 <Modal
                     bsSize="large"

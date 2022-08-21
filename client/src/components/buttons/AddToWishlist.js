@@ -16,13 +16,13 @@ class AddToWishlist extends Component {
 
     componentDidMount() {
         if (this.props.isAuthenticated) {
-            this.bookInWishlist( this.props.isbn);
+            this.isBookInWishlist(this.props.isbn);
         } else {
             this.setState({ loading: false });
         }
     }
 
-    bookInWishlist = (isbn) => {
+    isBookInWishlist = (isbn) => {
         axios
             .get(`/api/users/isInWishlist/${isbn}`)
             .then(res =>
@@ -31,7 +31,9 @@ class AddToWishlist extends Component {
                     loading: false
                 })
             )
-            .catch(err => console.log(err));
+            .catch(err => console.log(err)).finally(() => {
+                this.setState({ loading: false })
+            });
     };
     addBookToWishlist = (isbn) => {
         axios

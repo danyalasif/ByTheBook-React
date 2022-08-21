@@ -6,8 +6,7 @@ import passport from 'passport';
 import User from '../models/userSchema';
 import Book from '../models/bookSchema';
 import Order from '../models/orderSchema';
-import Review from '../models/reviewSchema';
-import mongoose from 'mongoose';
+
 import { sendConfirmationEmail } from '../mailer';
 import { removeElement, isInArray } from '../HelperFunctions';
 import { storage } from '../HelperFunctions';
@@ -86,8 +85,8 @@ router.get('/isInWishlist/:isbn', (req, res) => {
             if (isInArray(user.wishlist, book._id))
                 res.json({ isInWishlist: true });
             else res.json({ isInWishlist: false });
-        });
-    });
+        }).catch(err => console.error({ err }));
+    }).catch(err => console.error({ err }));
 });
 
 /* GET users wishlist. */
@@ -149,7 +148,7 @@ router.post('/register', (req, res, next) => {
                 // account.set({email: req.body.email})
                 // account.save(err => {});
                 account.setConfirmationToken();
-                account.save(err => {});
+                account.save(err => { });
                 sendConfirmationEmail(account);
                 passport.authenticate('local', (err, user, info) => {
                     if (err) {
@@ -212,7 +211,7 @@ router.post('/uploadUserImage', upload.single('user_image'), (req, res) => {
 });
 
 router.put('/editUser', (req, res) => {
- 
+
     User.findOne({ username: req.user.username })
         .then(user => {
             user.about = req.body.userData.description;
@@ -221,13 +220,6 @@ router.put('/editUser', (req, res) => {
         })
         .catch(err => console.log(err));
 });
-
-// router.post('/login', passport.authenticate('local'), (req, res) => {
-//     console.log("Inside Login")
-//     // res.status(200).json("Logged In");
-//     res.status(200).json({ user: {username: req.user.username, password: req.user.password}});
-
-// });
 
 router.post('/confirmation', (req, res) => {
     const token = req.body.token;

@@ -2,6 +2,7 @@ export const USER_LOGGED_IN = 'USER_LOGGED_IN';
 export const USER_LOGGED_OUT = 'USER_LOGGED_OUT';
 
 export const ADD_TO_CART = 'ADD_TO_CART';
+export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 export const CLEAR_CART = 'CLEAR_CART';
 export const REPOPULATE_CART = 'REPOPULATE_CART';
 

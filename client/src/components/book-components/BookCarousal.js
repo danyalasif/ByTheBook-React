@@ -1,51 +1,43 @@
 import React from 'react';
-import { Carousel } from '../../../node_modules/react-bootstrap';
+import { Carousel } from 'react-bootstrap';
+
 const quotes = [
     {
         quote: `Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.`,
         author: `Albert Einstein`,
-        image: `/carousal1.jpg`
     },
     { quote: `So many books, so little time.`, author: `Frank Zappa` },
     {
         quote: `A room without books is like a body without a soul.`,
         author: `Marcus Tullius Cicero`,
-        image: `/carousal1.jpg`
     },
     {
         quote: `If you tell the truth, you don't have to remember anything.`,
         author: `Mark Twain`,
-        image: `/carousal1.jpg`
     },
     {
         quote: `To live is the rarest thing in the world. Most people exist, that is all.`,
         author: `Oscar Wilde`,
-        image: `/carousal1.jpg`
     },
     {
         quote: `To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.`,
         author: `Ralph Waldo Emerson`,
-        image: `/carousal1.jpg`
     },
     {
         quote: `And those who were seen dancing were thought to be insane by those who could not hear the music.`,
         author: `Friedrich Nietzsche`,
-        image: `/carousal1.jpg`
     },
     {
         quote: `Sometimes people don't want to hear the truth because they don't want their illusions destroyed.`,
         author: `Friedrich Nietzsche`,
-        image: `/carousal1.jpg`
     },
     {
         quote: `There are no facts, only interpretations.`,
         author: `Friedrich Nietzsche`,
-        image: `/carousal1.jpg`
     },
     {
         quote: `I cannot believe in a God who wants to be praised all the time.`,
         author: `Friedrich Nietzsche`,
-        image: `/carousal1.jpg`
     }
 ];
 
@@ -61,22 +53,16 @@ let retroStyles = {
     textRendering: 'optimizeLegibility'
 };
 
-// fontSize: '25px',
-// fontFamily: 'Lato',
-// textShadow: { textShadow },
-// fontWeight: '700',
-// letterSpacing: '.015em',
-// background: 'red'
 
-const BookCarousal = ({ books }) => (
+const BookCarousal = () => (
     <Carousel interval="100000" style={{ marginBottom: '2em' }}>
-        {quotes.map(quote => (
-            <Carousel.Item>
+        {quotes.map((quote, i) => (
+            <Carousel.Item key={i}>
                 <img
                     width={1920}
-                    height={300}
+                    height={320}
                     alt="900x500"
-                    src="images/carousal1.jpeg"
+                    src={`https://loremflickr.com/1400/320/grass?image=${i}`}
                 />
                 <Carousel.Caption>
                     <p style={retroStyles}>&#65282;{quote.quote}&#65282;</p>
@@ -84,7 +70,7 @@ const BookCarousal = ({ books }) => (
                 </Carousel.Caption>
             </Carousel.Item>
         ))}
-       
+
     </Carousel>
 );
 export default BookCarousal;

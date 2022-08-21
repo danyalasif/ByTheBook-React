@@ -14,7 +14,7 @@ import InlineSuccess from '../messages/InlineSuccess';
 import { Link } from 'react-router-dom';
 import AddToCart from '../buttons/AddToCart';
 
-import { DecreaseQty, IncreaseQty, ClearCart } from 'react-redux-shopping-cart';
+// import { DecreaseQty, IncreaseQty, ClearCart } from 'react-redux-shopping-cart';
 
 class CheckoutPage extends Component {
     constructor(props) {
@@ -100,11 +100,9 @@ class CheckoutPage extends Component {
                     <Segment loading={loading} horizontal>
                         {messages.success && (
                             <InlineSuccess
-                                text={`${
-                                    messages.success.success
-                                }, Your Order Id is ${
-                                    messages.success.order_id
-                                }`}
+                                text={`${messages.success.success
+                                    }, Your Order Id is ${messages.success.order_id
+                                    }`}
                             />
                         )}
                         <Item.Group divided>
@@ -114,18 +112,16 @@ class CheckoutPage extends Component {
                                 books.map(book => (
                                     <Item>
                                         <Item.Image
-                                            src={`${
-                                                book.book_id.book_img
-                                            }`}
+                                            src={`${book.book_id.book_img
+                                                }`}
                                             alt={book.book_id.title}
                                         />
 
                                         <Item.Content>
                                             <Item.Header
                                                 as={Link}
-                                                to={`/book/${
-                                                    book.book_id.ISBN13
-                                                }`}
+                                                to={`/book/${book.book_id.ISBN13
+                                                    }`}
                                             >
                                                 {book.book_id.title}
                                             </Item.Header>
@@ -152,7 +148,7 @@ class CheckoutPage extends Component {
                                                     .map(
                                                         y =>
                                                             y.qty <= 5 ? (
-                                                                <IncreaseQty
+                                                                {/*<IncreaseQty
                                                                     itemId={
                                                                         book
                                                                             .book_id
@@ -162,7 +158,7 @@ class CheckoutPage extends Component {
                                                                         generalStyles +
                                                                         incrementStyles
                                                                     }
-                                                                />
+                                                                />*/}
                                                             ) : (
                                                                 <Button
                                                                     disabled
@@ -178,13 +174,13 @@ class CheckoutPage extends Component {
                                                             )
                                                     )}
 
-                                                <DecreaseQty
+                                                {/* <DecreaseQty
                                                     itemId={book.book_id._id}
                                                     styles={
                                                         generalStyles +
                                                         decrementStyles
                                                     }
-                                                />
+                                                /> */}
                                             </Item.Extra>
                                             <Item.Extra>
                                                 <Input
@@ -261,7 +257,7 @@ class CheckoutPage extends Component {
                             onClick={this.updateCart}
                         />
 
-                        <ClearCart />
+                        {/* <ClearCart /> */}
                     </Segment>
                 </Segment.Group>
             </Container>

@@ -6,8 +6,8 @@ import { signup } from '../../actions/users';
 // import { Button, Header, Image, Modal } from 'semantic-ui-react';
 import { Modal, Button } from 'react-bootstrap';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
 import { withRouter } from 'react-router-dom';
 class SignupPage extends React.Component {
@@ -41,7 +41,8 @@ class SignupPage extends React.Component {
                     bsSize="large"
                     onClick={this.handleShow}
                 >
-                    <FontAwesomeIcon icon={faUserPlus} /> Sign Up
+                    {/* <FontAwesomeIcon icon={faUserPlus} /> Sign Up */}
+                    Sign Up
                 </Button>
 
                 <Modal show={this.state.show} onHide={this.handleClose}>
