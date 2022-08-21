@@ -8,7 +8,7 @@ import {
     ControlLabel,
     FormControl,
     Col
-} from '../../../node_modules/react-bootstrap';
+} from 'react-bootstrap';
 import axios from 'axios';
 
 class EditUser extends Component {

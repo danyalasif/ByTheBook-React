@@ -1,14 +1,14 @@
 
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import {
     NavDropdown,
     MenuItem,
     Badge,
     Table
-} from '../../../node_modules/react-bootstrap';
+} from 'react-bootstrap';
 import _ from 'lodash';
 import axios from 'axios';
 
@@ -36,16 +36,21 @@ class CartDropdown extends Component {
         const { books } = this.state;
 
         _.debounce(this.updateCartDropdown, 500);
-        let color = cart.items.length > 0 ? '#382110' : 'grey';
+        let color = 'grey'//cart?.items.length > 0 ? '#382110' : 'grey';
+
+        if(!books) {
+            return <p>Loading...</p>
+        }
+
         return (
             <NavDropdown
                 title={
                     <div>
-                        <FontAwesomeIcon
+                        {/* <FontAwesomeIcon
                             icon={faShoppingCart}
                             style={{ color: color }}
-                        />
-                        <Badge>{cart.items.length}</Badge>
+                        /> */}
+                        {/* <Badge>{cart.items.length}</Badge> */}
                     </div>
                 }
                 id="basic-nav-dropdown"
@@ -61,41 +66,40 @@ class CartDropdown extends Component {
                     books.length < 1 && (
                         <MenuItem>No Item In Cart</MenuItem>
                     )) || (
-                    <MenuItem>
-                        {/* <p>
+                        <MenuItem>
+                            {/* <p>
                                 {book.book_id.title}
                                 <span>{book.sub_total}</span>
                             </p> */}
-                        <Table striped bordered condensed hover>
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Title</th>
-                                    <th>Quantity</th>
-                                    <th>SubTotal</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {books && books.map((book, i) => (
+                            <Table striped bordered condensed hover>
+                                <thead>
                                     <tr>
-                                        <td>{i + 1}</td>
-                                        <td>
-                                            <Link
-                                                to={`/book/${
-                                                    book.book_id.ISBN13
-                                                }`}
-                                            >
-                                                {book.book_id.title}
-                                            </Link>
-                                        </td>
-                                        <td>{book.order_quantity}</td>
-                                        <td>{book.sub_total}</td>
+                                        <th>#</th>
+                                        <th>Title</th>
+                                        <th>Quantity</th>
+                                        <th>SubTotal</th>
                                     </tr>
-                                ))}
-                            </tbody>
-                        </Table>
-                    </MenuItem>
-                )}
+                                </thead>
+                                <tbody>
+                                    {books && books.map((book, i) => (
+                                        <tr>
+                                            <td>{i + 1}</td>
+                                            <td>
+                                                <Link
+                                                    to={`/book/${book.book_id.ISBN13
+                                                        }`}
+                                                >
+                                                    {book.book_id.title}
+                                                </Link>
+                                            </td>
+                                            <td>{book.order_quantity}</td>
+                                            <td>{book.sub_total}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </Table>
+                        </MenuItem>
+                    )}
                 {/* {(cart.items < 1 && <MenuItem>No Item In Cart</MenuItem>) ||
                     cart.items.map(cartItem => (
                         <MenuItem description={cartItem.qty}>

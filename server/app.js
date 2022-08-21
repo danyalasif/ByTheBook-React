@@ -8,13 +8,14 @@ import logger from 'morgan';
 import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
 import path from 'path';
-
 import User from './models/userSchema';
 import index from './routes/index';
 import reviews from './routes/reviews';
 import users from './routes/users';
 import cart from './routes/cart';
+
 require('dotenv').config();
+const MongoStore = require('connect-mongo');
 
 mongoose.connect(process.env.MONGO_URL).then(
     () => {
@@ -46,7 +47,8 @@ app.use(
         secret: 'keyboard cat',
         resave: false,
         saveUninitialized: false,
-        // store: MongoStore.create({ mongoOptions: { m } })
+        store: MongoStore.create({ client: mongoose.connection.getClient() })
+
     })
 );
 app.use(passport.initialize());

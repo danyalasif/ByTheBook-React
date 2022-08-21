@@ -13,12 +13,15 @@ import {
     Glyphicon,
 } from 'react-bootstrap';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArchive, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faArchive, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 import { connect } from 'react-redux';
 import * as actions from '../../actions/auth';
 import { Link } from 'react-router-dom';
+import api from "../../api"
+import { repopulateCart } from "../../actions/cart"
+
 
 class TopNavigation extends Component {
     constructor(props) {
@@ -26,6 +29,12 @@ class TopNavigation extends Component {
         this.state = {
             dropdownOpen: false
         };
+    }
+
+    componentDidMount() {
+        api.cart.getCart().then(cart => {
+            repopulateCart(cart);
+        })
     }
 
     toggle = () => {
@@ -64,7 +73,8 @@ class TopNavigation extends Component {
                         </NavItem>
                         {(!isAuthenticated && (
                             <NavDropdown
-                                title={<FontAwesomeIcon icon={faUserCircle} />}
+                                // title={<FontAwesomeIcon icon={faUserCircle} />}
+                                title="User"
                                 id="basic-nav-dropdown"
                                 style={{ fontSize: '30px', color: '#382110' }}
                             >
@@ -76,68 +86,65 @@ class TopNavigation extends Component {
                                 </MenuItem>
                             </NavDropdown>
                         )) || (
-                            <NavDropdown
-                                title={
-                                    <FontAwesomeIcon
-                                        icon={faUserCircle}
-                                        style={{ color: '#382110' }}
-                                    />
-                                }
-                                id="basic-nav-dropdown"
-                                style={{
-                                    fontSize: '30px'
-                                }}
-                            >
-                                <MenuItem style={{ fontSize: '16px' }}>
-                                    <p>
-                                        <Glyphicon glyph="user" /> Signed in as{' '}
-                                        {user.username}
-                                    </p>
-                                </MenuItem>
-                                <MenuItem divider />
+                                <NavDropdown
+                                    // title={<FontAwesomeIcon icon={faUserCircle} style={{ color: '#382110' }} />}
+                                    title={user.username}
+                                    id="basic-nav-dropdown"
+                                    style={{
+                                        fontSize: '30px'
+                                    }}
+                                >
+                                    <MenuItem style={{ fontSize: '16px' }}>
+                                        <p>
+                                            <Glyphicon glyph="user" /> Signed in as{' '}
+                                            {user.username}
+                                        </p>
+                                    </MenuItem>
+                                    <MenuItem divider />
 
-                                <MenuItem style={{ fontSize: '16px' }}>
-                                    <Link to={'/profile/' + user.username}>
-                                        <p>Profile</p>
-                                    </Link>
-                                </MenuItem>
-                                <MenuItem style={{ fontSize: '16px' }}>
-                                    <Link to={'/orders'}>
-                                        <p>Orders</p>
-                                    </Link>
-                                </MenuItem>
-                                {isAuthenticated &&
-                                    user.username === 'admin' && (
-                                        <React.Fragment>
-                                            <MenuItem
-                                                style={{ fontSize: '16px' }}
-                                            >
-                                                <Link to="/admin/createbook">
-                                                    Add a Book
-                                                </Link>
-                                            </MenuItem>
-                                            <MenuItem
-                                                style={{ fontSize: '16px' }}
-                                            >
-                                                <Link to="/admin/createauthor">
-                                                    Add an Author
-                                                </Link>
-                                            </MenuItem>
-                                        </React.Fragment>
-                                    )}
+                                    <MenuItem style={{ fontSize: '16px' }}>
+                                        <Link to={'/profile/' + user.username}>
+                                            <p>Profile</p>
+                                        </Link>
+                                    </MenuItem>
+                                    <MenuItem style={{ fontSize: '16px' }}>
+                                        <Link to={'/orders'}>
+                                            <p>Orders</p>
+                                        </Link>
+                                    </MenuItem>
+                                    {isAuthenticated &&
+                                        user.username === 'admin' && (
+                                            <React.Fragment>
+                                                <MenuItem
+                                                    style={{ fontSize: '16px' }}
+                                                >
+                                                    <Link to="/admin/createbook">
+                                                        Add a Book
+                                                    </Link>
+                                                </MenuItem>
+                                                <MenuItem
+                                                    style={{ fontSize: '16px' }}
+                                                >
+                                                    <Link to="/admin/createauthor">
+                                                        Add an Author
+                                                    </Link>
+                                                </MenuItem>
+                                            </React.Fragment>
+                                        )}
 
-                                <MenuItem divider />
-                                <MenuItem style={{ fontSize: '16px' }}>
-                                    <Link to="/" onClick={logout}>
-                                        <Glyphicon glyph="log-out" /> Logout
-                                    </Link>{' '}
-                                </MenuItem>
-                            </NavDropdown>
-                        )}
+                                    <MenuItem divider />
+                                    <MenuItem style={{ fontSize: '16px' }}>
+                                        <Link to="/" onClick={logout}>
+                                            <Glyphicon glyph="log-out" /> Logout
+                                        </Link>{' '}
+                                    </MenuItem>
+                                </NavDropdown>
+                            )}
                     </Nav>
                     <Nav pullRight>
                         <NavDropdown
-                            title={<FontAwesomeIcon icon={faArchive} />}
+                            // title={<FontAwesomeIcon icon={faArchive} />}
+                            title="Archive"
                             id="basic-nav-dropdown"
                             style={{ fontSize: '30px' }}
                         >

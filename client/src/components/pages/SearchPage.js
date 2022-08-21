@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 // import { Table } from 'reactable';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
-import { Link } from '../../../node_modules/react-router-dom';
+import Link from 'react-router-dom/Link';
 // import _ from 'lodash';
 
 class SearchPage extends Component {

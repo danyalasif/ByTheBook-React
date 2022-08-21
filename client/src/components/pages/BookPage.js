@@ -9,7 +9,7 @@ import AddToWishlist from '../buttons/AddToWishlist';
 import AddToReadlist from '../buttons/AddToReadlist';
 import AddToCart from '../buttons/AddToCart';
 import EditButton from '../buttons/EditButton';
-import { Grid, Row, Col } from '../../../node_modules/react-bootstrap';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 class BookPage extends Component {
     constructor(props) {
@@ -32,7 +32,7 @@ class BookPage extends Component {
             .get(`/api/reviews/${isbn}`)
             .then(res => {
                 this.setState({ reviews: res.data });
-                this.calculateBookRating();
+                // this.calculateBookRating();
             })
             .catch(err => console.log(err));
     };

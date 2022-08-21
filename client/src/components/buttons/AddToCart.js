@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {
-    AddToCart as ReduxAddToCart,
-    RemoveFromCart
-} from 'react-redux-shopping-cart';
+import { connect } from 'react-redux';
+import { removeFromCart, addProduct, updateCartThunk } from "../../actions/cart"
+// import {
+//     AddToCart as ReduxAddToCart,
+//     RemoveFromCart
+// } from 'react-redux-shopping-cart';
 class AddToCart extends Component {
     constructor(props) {
         super(props);
@@ -12,13 +14,22 @@ class AddToCart extends Component {
             quantity: 1
         };
     }
-    updateCart = e => {
+    updateCart = book => {
         setTimeout(() => {
-            console.log('CLICKED!!!!');
+            console.log({ book });
             this.setState({ loading: true });
-            axios.post('/api/cart/updateCart', { cart: this.props.cart.items });
+            this.props.dispatch(updateCartThunk([book, ...this.props.cart.items]))
         }, 1000);
     };
+
+    removeFromCart(book) {
+        removeFromCart(this.props.book._id)
+    }
+
+    addToCart(book) {
+        console.log("Add to cart,", book)
+        this.props.dispatch(addProduct(book))
+    }
 
     render() {
         const { book, cart } = this.props;
@@ -33,13 +44,37 @@ class AddToCart extends Component {
         `;
         //TODO: Convert the Cart Button to quantities when it is in cart,  otherwise just show the cart button
         return (
-            <div  style={{marginLeft: '10px'}}>
-                {cart &&
-                cart.items.length > 0 &&
-                cart.items.some(e => e.id === book._id) ? (
+            <div style={{ marginLeft: '10px' }}>
+                {cart && cart.items &&
+                    cart.items.length > 0 &&
+                    cart.items.some(e => e.id === book._id) ? (
                     <React.Fragment>
-                        <div onClick={this.updateCart}>
-                            <RemoveFromCart
+                        <button>Remove from Cart</button>
+                    </React.Fragment>
+                ) : (
+
+                    <button onClick={() => this.updateCart(book)}>Add to Cart</button>
+
+                )}
+            </div>
+        );
+    }
+}
+
+function mapStateToProps(state) {
+    return {
+        isAuthenticated: !!state.user.token,
+        cart: state.cart
+    };
+}
+
+export default connect(
+    mapStateToProps
+)(AddToCart);
+
+{/*<div onClick={this.updateCart}>
+                            
+                             <RemoveFromCart
                                 item={{
                                     id: book._id
                                 }}
@@ -48,12 +83,11 @@ class AddToCart extends Component {
                                     `background-color: #B80F28;  box-shadow: 1px 2px #B80F28;`
                                 }
                                 onClick={this.updateCart}
-                            />
-                        </div>
-                    </React.Fragment>
-                ) : (
-                    <div onClick={this.updateCart}>
-                        <ReduxAddToCart
+                            /> 
+                        </div>*/}
+
+
+{/* <ReduxAddToCart
                             item={{
                                 id: book._id,
                                 price: book.price,
@@ -69,12 +103,4 @@ class AddToCart extends Component {
                                 styles +
                                 `background-color: #119e4d; box-shadow: 1px 2px #119e4d;`
                             }
-                        />
-                    </div>
-                )}
-            </div>
-        );
-    }
-}
-
-export default AddToCart;
+                        /> */}

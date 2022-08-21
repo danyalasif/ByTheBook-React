@@ -40,6 +40,7 @@ export default {
                 console.log(res.data);
                 return res.data;
             }),
-        getCart: () => axios.get('/api/cart/cartItems').then(res => res.data)
+        getCart: () => axios.get('/api/cart/cartItems').then(res => res.data),
+        updateCart: (cartItems) => axios.post('/api/cart/updateCart', { cart: cartItems })
     }
 };
