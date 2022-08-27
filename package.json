@@ -6,14 +6,12 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-
   "scripts": {
-    "start": "cross-env NODE_ENV=production node build-server/app.js",
+    "start": "cross-env NODE_ENV=production node build-server/bin/www.js",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "build": "npm run build:client && npm run build:server",
     "deploy": "vercel --prod",
     "clean": "concurrently \"rimraf node_modules\" \"rimraf build\" \"rimraf build-server\"",
-
     "dev:server": "nodemon",
     "compile:server": "babel-node src --out-dir .compiled --source-maps --watch",
     "build:server": "babel server --ignore node_modules,build --out-dir build-server && npm run build:server-bin",
@@ -101,7 +99,6 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^7.4.0",
-    "cross-env": "^5.2.0",
     "nodemon": "^2.0.1"
   }
 }
