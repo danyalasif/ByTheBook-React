@@ -3,11 +3,11 @@
   "builds": [
     {
       "src": "build-server/app.js",
-      "use": "@now/node-server"
+      "use": "@vercel/node"
     },
     {
       "src": "package.json",
-      "use": "@now/static-build",
+      "use": "@vercel/static-build",
       "config": {
         "distDir": "build"
       }
@@ -16,7 +16,7 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "build-server/app.js"
+      "dest": "build-server/bin/www.js"
     },
     { "handle": "filesystem" },
     {
