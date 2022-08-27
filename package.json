@@ -12,12 +12,12 @@
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "build": "npm run build:client && npm run build:server",
     "deploy": "vercel --prod",
-    "clean": "concurrently \"rimraf node_modules\" \"cd client && rimraf node_modules build\" \"cd server && rimraf node_modules build\"",
+    "clean": "concurrently \"rimraf node_modules\" \"rimraf build\" \"rimraf ./server/build\"",
 
     "dev:server": "nodemon",
     "compile:server": "babel-node src --out-dir .compiled --source-maps --watch",
-    "build:server": "cd server && babel . --ignore node_modules,build --out-dir build &&  npm run build:server-bin",
-    "build:server-bin": "cd server && babel ./bin/www --out-dir ./build",
+    "build:server": "babel server --ignore node_modules,build --out-dir ./server/build &&  npm run build:server-bin",
+    "build:server-bin": "babel ./server/bin/www --out-dir ./server/build",
     "build:server-public": "cp -u -r public build/public",
     "start:prod": "node -r dotenv/config ./build/bin/www",
 
