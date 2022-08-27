@@ -1,0 +1,4 @@
+{
+  "ext": "js",
+  "exec": "babel-node -- server/bin/www"
+}

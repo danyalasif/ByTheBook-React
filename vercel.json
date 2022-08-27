@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "build-server/index.js",
+      "use": "@now/node-server"
+    },
+    {
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "build-server/index.js"
+    },
+    { "handle": "filesystem" },
+    {
+      "src": "/(.*)",
+      "status": 404,
+      "dest": "build/404.html"
+    }
+  ]
+}
