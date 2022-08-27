@@ -8,7 +8,7 @@
   "license": "ISC",
 
   "scripts": {
-    "start": "cross-env NODE_ENV=production node build-server/index.js",
+    "start": "cross-env NODE_ENV=production node build-server/app.js",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "build": "npm run build:client && npm run build:server",
     "deploy": "vercel --prod",
@@ -19,7 +19,7 @@
     "build:server": "babel server --ignore node_modules,build --out-dir build-server && npm run build:server-bin",
     "build:server-bin": "cd server && babel bin/www --out-dir ../build-server",
     "build:server-public": "cp -u -r public build/public",
-    "start:prod": "node -r dotenv/config build-server/bin/www",
+    "start:server-prod": "node -r dotenv/config build-server/bin/www",
 
     "dev:client": "cross-env PORT=5000 react-scripts start",
     "build:client": "react-scripts build",

@@ -16,7 +16,7 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "build-server/index.js"
+      "dest": "build-server/app.js"
     },
     { "handle": "filesystem" },
     {
