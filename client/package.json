@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@redux-devtools/extension": "^3.2.3",
     "axios": "^0.18.0",
     "bootstrap": "^4.1.1",
     "faker": "^4.1.0",
@@ -21,7 +22,6 @@
     "react-table": "^6.8.6",
     "reactable": "^1.0.2",
     "redux": "^4.0.0",
-    "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.2.0",
     "semantic-ui-css": "^2.3.1",
     "semantic-ui-react": "^0.81.1",
