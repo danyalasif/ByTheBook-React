@@ -16,8 +16,8 @@
         "start": "concurrently  \"cd server &&  npm start\" \"cd client && npm start\"",
         "start:prod": "cd server && npm run start:prod",
         "install:client": "cd client && npm install",
-        "install:server": "cd server && npm install",    
-        "postinstall": "npm run install:client && npm run install:server"
+        "install:server": "cd server && npm install",
+        "install": "npm run install:server && npm run install:client"
     },
     "devDependencies": {
         "@faker-js/faker": "^7.4.0",
