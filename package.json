@@ -7,17 +7,17 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node build-server/bin/www.js",
+    "start": "cross-env NODE_ENV=production node build-server/app.js",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "build": "npm run build:client && npm run build:server",
     "deploy": "vercel --prod",
     "clean": "concurrently \"rimraf node_modules\" \"rimraf build\" \"rimraf build-server\"",
-    "dev:server": "nodemon",
+    "dev:server": "npm run build:server && nodemon build-server/app.js",
     "compile:server": "babel-node src --out-dir .compiled --source-maps --watch",
-    "build:server": "babel server --ignore node_modules,build --out-dir build-server && npm run build:server-bin",
+    "build:server": "babel server/app.js -d build-server",
     "build:server-bin": "cd server && babel bin/www --out-dir ../build-server",
     "build:server-public": "cp -u -r public build/public",
-    "start:server-prod": "node -r dotenv/config build-server/bin/www",
+    "start:server-prod": "node -r dotenv/config build-server/app.js",
     "dev:client": "cross-env PORT=5000 react-scripts start",
     "build:client": "react-scripts build",
     "test:client": "react-scripts test --env=jsdom",
@@ -43,8 +43,6 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
     "bootstrap": "^4.1.1",
@@ -64,6 +62,7 @@
     "jsonwebtoken": "^8.2.1",
     "jwt-decode": "^2.2.0",
     "lodash": "^4.17.10",
+    "mongodb": "^4.9.0",
     "mongoose": "^6.5.2",
     "mongoose-unique-validator": "^3.1.0",
     "morgan": "^1.10.0",
@@ -98,6 +97,10 @@
     "vercel": "^28.2.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.18.13",
+    "@babel/node": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
     "@faker-js/faker": "^7.4.0",
     "nodemon": "^2.0.1"
   }

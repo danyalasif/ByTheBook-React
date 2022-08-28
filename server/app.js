@@ -1,4 +1,3 @@
-import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import express from 'express';
 const app = express();
@@ -13,9 +12,10 @@ import index from './routes/index';
 import reviews from './routes/reviews';
 import users from './routes/users';
 import cart from './routes/cart';
+import { createServer } from 'http';
+import MongoStore from 'connect-mongo';
 
 require('dotenv').config();
-const MongoStore = require('connect-mongo');
 
 mongoose.connect(process.env.MONGO_URL).then(
     () => {
@@ -40,7 +40,6 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 // app.use(expressValidator());
-app.use(cookieParser());
 app.use(
     session({
         key: 'Reactive Session',
@@ -92,7 +91,66 @@ app.use(function (err, req, res, next) {
     res.render('error');
 });
 
-// const port = process.env.APP_PORT || process.env.PORT || 3001;
+/**
+ * Event listener for HTTP server "error" event.
+ */
 
-// app.listen(port, () => console.log('Example app listening on port ' + port));
+function onError(error) {
+    if (error.syscall !== 'listen') {
+        throw error;
+    }
+
+    const bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
+
+    // handle specific listen errors with friendly messages
+    switch (error.code) {
+        case 'EACCES':
+            console.error(bind + ' requires elevated privileges');
+            process.exit(1);
+            break;
+        case 'EADDRINUSE':
+            console.error(bind + ' is already in use');
+            process.exit(1);
+            break;
+        default:
+            throw error;
+    }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+    const addr = server.address();
+    const bind =
+        typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
+    console.log(`Up on http://localhost:${addr.port}`);
+}
+
+
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+ const port = process.env.APP_PORT || process.env.PORT || 3001;
+ app.set('port', port);
+
+
+/**
+ * Create HTTP server.
+ */
+
+ const server = createServer(app);
+
+ /**
+  * Listen on provided port, on all network interfaces.
+  */
+ 
+ server.listen(port, () => console.log('Example app listening on port ' + port));
+ server.on('error', onError);
+ server.on('listening', onListening);
+
+
 export default app;
