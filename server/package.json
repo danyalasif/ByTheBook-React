@@ -3,16 +3,19 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "start": "nodemon --exec  babel-node -- ./bin/www",
-        "compile": "babel-node src --out-dir .compiled --source-maps --watch",
-        "build": "babel . --ignore node_modules,build --out-dir build && npm run build:bin && npm run build:public",
+        "start": "nodemon --exec  babel -- ./app.js",
+        "compile": "babel src --out-dir .compiled --source-maps --watch",
+        "build": "babel . --ignore node_modules,build --out-dir build && npm run build:public",
         "build:bin": "babel ./bin/www --out-dir ./build",
         "build:public": "cp -u -r public build/public",
-        "start:prod": "node -r dotenv/config ./build/bin/www"
+        "start:prod": "node -r dotenv/config ./build/app"
     },
     "dependencies": {
+        "@babel/cli": "^7.18.10",
+        "@babel/core": "^7.18.13",
+        "@babel/node": "^7.18.10",
+        "@babel/preset-env": "^7.18.10",
         "axios": "^0.27.2",
-        "babel-cli": "^6.26.0",
         "babel-preset-env": "^1.7.0",
         "bcrypt-nodejs": "0.0.3",
         "body-parser": "^1.18.3",
@@ -26,6 +29,7 @@
         "express-validator": "^6.14.2",
         "jade": "^1.9.2",
         "jsonwebtoken": "^8.2.1",
+        "mongodb": "^4.9.0",
         "mongoose": "^6.5.2",
         "mongoose-unique-validator": "^3.1.0",
         "morgan": "^1.10.0",

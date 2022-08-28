@@ -1,5 +1,5 @@
 {
-    "name": "ByTheBook-React",
+    "name": "bythebook",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -17,7 +17,7 @@
         "start:prod": "cd server && npm run start:prod",
         "install:client": "cd client && npm install",
         "install:server": "cd server && npm install",    
-        "postinstall": "npm run install:client && npm run install:server"        
+        "postinstall": "npm run install:client && npm run install:server"
     },
     "devDependencies": {
         "@faker-js/faker": "^7.4.0",
