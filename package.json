@@ -11,7 +11,9 @@
         "rimraf": "^2.5.4"
     },
     "scripts": {
-        "build": "concurrently \"cd client && npm run build\" \"cd server && npm run build\"",
+        "build": "npm run build:server && npm run build:client",
+        "build:server": "cd server && npm run build",
+        "build:client": "cd client && npm run build",
         "clean": "concurrently \"rimraf node_modules\" \"cd client && rimraf node_modules build\" \"cd server && rimraf node_modules build\"",
         "start": "concurrently  \"cd server &&  npm start\" \"cd client && npm start\"",
         "start:prod": "cd server && npm run start:prod",
