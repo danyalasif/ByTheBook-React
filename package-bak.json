@@ -1,0 +1,26 @@
+{
+    "name": "ByTheBook-React",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "concurrently": "^3.1.0",
+        "rimraf": "^2.5.4"
+    },
+    "scripts": {
+        "build": "concurrently \"cd client && npm run build\" \"cd server && npm run build\"",
+        "clean": "concurrently \"rimraf node_modules\" \"cd client && rimraf node_modules build\" \"cd server && rimraf node_modules build\"",
+        "start": "concurrently  \"cd server &&  npm start\" \"cd client && npm start\"",
+        "start:prod": "cd server && npm run start:prod",
+        "install:client": "cd client && npm install",
+        "install:server": "cd server && npm install",    
+        "postinstall": "npm run install:client && npm run install:server"        
+    },
+    "devDependencies": {
+        "@faker-js/faker": "^7.4.0",
+        "cross-env": "^5.2.0"
+    }
+}

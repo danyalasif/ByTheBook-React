@@ -8,6 +8,7 @@ coverage
 
 # production
 build
+build-server
 
 # misc
 .DS_Store
@@ -17,3 +18,4 @@ yarn-error.log
 *.rdb
 
 .env
+.vercel

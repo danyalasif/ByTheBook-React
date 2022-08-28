@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "build-server/bin/www.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "build-server/app.js"
+    },
+    { "handle": "filesystem" },
+    {
+      "src": "/(.*)",
+      "status": 404,
+      "dest": "build/404.html"
+    }
+  ]
+}

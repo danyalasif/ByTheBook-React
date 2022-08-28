@@ -28,7 +28,7 @@ import Footer from './components/navigation/Footer';
 class App extends Component {
     render() {
         return (
-            <div>
+            <>
                 <GuestRoute component={TopNavigation} />
                 <GuestRoute path="/" exact component={HomePage} />
                 <GuestRoute
@@ -74,7 +74,7 @@ class App extends Component {
                 />
 
                 <GuestRoute component={Footer} />
-            </div>
+            </>
         );
     }
 }
