@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@redux-devtools/extension": "^3.2.3",
-    "axios": "^0.18.0",
+    "axios": "^0.27.2",
     "bootstrap": "^4.1.1",
     "faker": "^4.1.0",
     "http-proxy-middleware": "^2.0.6",
