@@ -23,6 +23,8 @@ import { userLoggedIn } from './actions/auth';
 import axios from 'axios';
 
 // import registerServiceWorker from './registerServiceWorker';
+axios.defaults.baseURL = process.env.PROXY_URL || 'http://localhost:3001/';
+
 
 const store = createStore(
     rootReducer,
